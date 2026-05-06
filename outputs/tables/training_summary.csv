@@ -1,0 +1,5 @@
+method,final_avg_reward_50,final_success_rate_50,final_avg_steps_50,best_reward,best_success_window,convergence_episode,experiment_id,obstacle_seed,experiment_mode,final_avg_loss_50
+Q-Learning,84.96,1.0,19.74,90.5,1.0,33,1,100,static_obstacles,
+DQN,84.44,1.0,19.86,90.5,1.0,13,1,100,static_obstacles,0.010900926012287
+Q-Learning,68.06,1.0,22.04,90.5,1.0,41,2,189,mostly_fixed_with_few_dynamic,
+DQN,85.48,1.0,19.62,90.5,1.0,43,2,189,mostly_fixed_with_few_dynamic,0.060698758994675875

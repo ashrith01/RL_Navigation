@@ -1,0 +1,110 @@
+{
+  "Static": {
+    "Q-Learning": {
+      "final_success_rate": 1.0,
+      "convergence_episode": 63,
+      "avg_reward_last50": 78.9,
+      "avg_steps_last50": 19.9,
+      "eval": {
+        "method": "Q-Learning",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 30
+      }
+    },
+    "DQN": {
+      "final_success_rate": 1.0,
+      "convergence_episode": 44,
+      "avg_reward_last50": 77.74,
+      "avg_steps_last50": 19.66,
+      "eval": {
+        "method": "DQN",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 30
+      }
+    },
+    "PPO": {
+      "final_success_rate": 1.0,
+      "convergence_episode": 81,
+      "avg_reward_last50": 107.5,
+      "avg_steps_last50": 21.3,
+      "eval": {
+        "method": "PPO",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 30
+      }
+    },
+    "Dijkstra": {
+      "eval": {
+        "method": "Dijkstra",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 1
+      }
+    }
+  },
+  "Mild Dynamic (30% patrol)": {
+    "Q-Learning": {
+      "final_success_rate": 1.0,
+      "convergence_episode": 97,
+      "avg_reward_last50": 78.96,
+      "avg_steps_last50": 19.64,
+      "eval": {
+        "method": "Q-Learning",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 30
+      }
+    },
+    "DQN": {
+      "final_success_rate": 1.0,
+      "convergence_episode": 51,
+      "avg_reward_last50": 77.36,
+      "avg_steps_last50": 20.64,
+      "eval": {
+        "method": "DQN",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 30
+      }
+    },
+    "PPO": {
+      "final_success_rate": 1.0,
+      "convergence_episode": 97,
+      "avg_reward_last50": 108.1,
+      "avg_steps_last50": 20.1,
+      "eval": {
+        "method": "PPO",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 30
+      }
+    },
+    "Dijkstra": {
+      "eval": {
+        "method": "Dijkstra",
+        "success_rate": 1.0,
+        "avg_reward": 82.0,
+        "avg_steps": 18.0,
+        "avg_path_length": 18.0,
+        "n_episodes": 1
+      }
+    }
+  }
+}
