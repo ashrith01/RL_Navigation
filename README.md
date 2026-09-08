@@ -5,6 +5,10 @@
 
 ---
 
+## Overview
+
+This repository compares tabular and deep reinforcement-learning approaches with a classical shortest-path baseline. The experiment pipeline trains each agent, evaluates deterministic rollouts, and writes plots, animations, and machine-readable summaries to `outputs/`.
+
 ## Algorithms Implemented
 
 | Method | Type | Key Features |
@@ -35,7 +39,6 @@
 |------------|-----------------|-------------|------------|
 | Exp 1 (seed=42)  | 0 %   | —       | Static baseline |
 | Exp 2 (seed=189) | 30 %  | Patrol (bounce) | Mild dynamic |
-| Exp 3 (seed=464) | 60 %  | Homing (chase agent) | Heavy dynamic |
 
 ---
 
@@ -66,15 +69,25 @@ Input (12) → Linear(128) + Tanh → Linear(128) + Tanh
 
 ---
 
-## Running the Project
+## Quick Start
+
+### Prerequisites
+
+- Python 3.9 or newer
+- `pip`
+
+### Installation and execution
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
 
 # Run full pipeline (~30–60 min on CPU)
-python main.py
+python3 main.py
 ```
+
+On Windows PowerShell, activate the environment with `.venv\Scripts\Activate.ps1`. Run commands from the repository root so local imports and output paths resolve correctly.
 
 All outputs are written to `outputs/`:
 
@@ -103,11 +116,13 @@ outputs/
 │   ├── exp1_ppo.gif
 │   ├── exp1_dijkstra.gif
 │   ├── exp1_comparison.gif
-│   └── …  (×3 experiments)
+│   └── …  (×2 experiments)
 │
 └── tables/
     ├── evaluation_summary.csv
-    └── results_summary.json
+    ├── parameter_sweeps.csv
+    ├── results_summary.json
+    └── training_summary.csv
 ```
 
 ---
@@ -135,24 +150,25 @@ outputs/
 
 ---
 
-## Key Results (Exp 1 — Static)
+## Key Results
 
-| Method | Success Rate | Avg Steps | Avg Reward | Convergence Ep |
-|--------|-------------|-----------|------------|---------------|
-| Dijkstra | 100% | optimal | best | — |
-| Q-Learning | ~100% | ~20 | ~79 | ~80 |
-| DQN | ~100% | ~19 | ~80 | ~150 |
-| PPO | ~100% | ~20 | ~79 | ~200 |
+The committed `outputs/tables/results_summary.json` records the following static-environment evaluation:
 
-*Dijkstra provides the optimal path; RL methods learn near-optimal policies.  
-On dynamic environments (Exp 2 & 3), deep RL (DQN, PPO) outperforms tabular Q-Learning.*
+| Method | Success Rate | Avg Steps | Avg Reward | Convergence Episode |
+|--------|-------------:|----------:|-----------:|--------------------:|
+| Dijkstra | 100% | 18 | 82 | — |
+| Q-Learning | 100% | 18 | 82 | 63 |
+| DQN | 100% | 18 | 82 | 44 |
+| PPO | 100% | 18 | 82 | 81 |
+
+The saved mild-dynamic evaluation also reports 100% success for all four methods. DQN reached the configured convergence threshold at episode 51, while Q-Learning and PPO reached it at episode 97. These values describe the committed seeded runs and may change when seeds or hyperparameters change.
 
 ---
 
-## File Structure
+## Repository Structure
 
 ```
-rl_nav_project/
+RL_Navigation/
 ├── environment.py    # GridWorldEnv (state, actions, dynamics)
 ├── q_learning.py     # Tabular Q-Learning agent
 ├── dqn_agent.py      # Dueling Double DQN + PER
@@ -163,5 +179,15 @@ rl_nav_project/
 ├── visualize.py      # Presentation-quality matplotlib plots
 ├── animate.py        # GIF animation generation
 ├── main.py           # Full experiment orchestration
-└── requirements.txt
+├── requirements.txt
+├── outputs/           # Generated plots, animations, and result tables
+└── CONTRIBUTING.md
 ```
+
+## Contributing
+
+Bug fixes, documentation improvements, and reproducible experiment additions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development and verification workflow.
+
+## License
+
+No open-source license has been declared for this repository. The source is publicly visible for educational and reference purposes; obtain permission from the repository owner before reuse or redistribution.
